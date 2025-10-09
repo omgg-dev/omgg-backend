@@ -25,6 +25,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           debug: true
+          envs: PROJECT_DIR,REPO_URL,CONTAINER_NAME,APP_PORT
           script: |
             mkdir -p ~/.ssh
             chmod 700 ~/.ssh
@@ -37,10 +38,12 @@ jobs:
             if [ ! -d "$PROJECT_DIR" ]; then
               echo "📁 Folder not found, cloning repository..."
               git clone $REPO_URL || { echo "Cloning failed"; exit 1; }
-              cd $PROJECT_DIR
+              # Change the path in case the docker isn't at the root of the project
+              # cd $PROJECT_DIR
             else
               echo "📁 Folder found, pulling latest changes..."
-              cd $PROJECT_DIR
+              # Change the path in case the docker isn't at the root of the project
+              # cd $PROJECT_DIR
               git pull origin main
             fi
 
