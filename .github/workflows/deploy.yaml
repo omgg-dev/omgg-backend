@@ -38,12 +38,10 @@ jobs:
             if [ ! -d "$PROJECT_DIR" ]; then
               echo "📁 Folder not found, cloning repository..."
               git clone $REPO_URL || { echo "Cloning failed"; exit 1; }
-              # Change the path in case the docker isn't at the root of the project
-              # cd $PROJECT_DIR
+              cd $PROJECT_DIR
             else
               echo "📁 Folder found, pulling latest changes..."
-              # Change the path in case the docker isn't at the root of the project
-              # cd $PROJECT_DIR
+              cd $PROJECT_DIR
               git pull origin main
             fi
 
