@@ -1,6 +1,6 @@
 services:
   strapi:
-    container_name: omgg-website-strapi
+    container_name: omggWebsiteStrapi
     build: .
     image: strapi:latest
     restart: unless-stopped
@@ -31,7 +31,7 @@ services:
       - strapiDB
 
   strapiDB:
-    container_name: strapiDB
+    container_name: omggWebsiteStrapiDB
     platform: linux/amd64 #for platform error on Apple M1 chips
     restart: unless-stopped
     env_file: .env

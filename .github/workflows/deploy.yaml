@@ -12,7 +12,7 @@ jobs:
     env:
       PROJECT_DIR: omgg-backend
       REPO_URL: git@github.com:omgg-dev/omgg-backend.git
-      CONTAINER_NAME: omgg-website-strapi
+      CONTAINER_NAME: omggWebsiteStrapi
       APP_PORT: 1337
     steps:
       - name: Checkout repository
@@ -57,5 +57,4 @@ jobs:
             docker ps -a -q --filter "name=$CONTAINER_NAME" | grep -q . && docker stop $CONTAINER_NAME && docker rm $CONTAINER_NAME
             
             # Build and run container
-            docker build -t $CONTAINER_NAME .
-            docker run -d -p $APP_PORT:$APP_PORT --name $CONTAINER_NAME $CONTAINER_NAME
+            docker compose up -d --build
