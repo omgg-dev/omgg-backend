@@ -1,6 +1,6 @@
 services:
   strapi:
-    container_name: strapi
+    container_name: omgg-website-strapi
     build: .
     image: strapi:latest
     restart: unless-stopped
