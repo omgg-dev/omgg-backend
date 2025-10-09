@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_element_button_dropdowns",
+  "info": {
+    "displayName": "Button Dropdown",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "IsDisable": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "variant": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Default",
+      "enum": [
+        "Default",
+        "Secondary",
+        "Destructive",
+        "Outline",
+        "Ghost",
+        "Link"
+      ]
+    },
+    "items": {
+      "type": "component",
+      "component": "link.item-link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

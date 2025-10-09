@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_element_menus",
+  "info": {
+    "displayName": "Menu",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "textLinks": {
+      "type": "component",
+      "component": "link.text-link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

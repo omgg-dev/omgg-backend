@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_element_logos",
+  "info": {
+    "displayName": "Logo",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
