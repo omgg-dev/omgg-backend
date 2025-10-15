@@ -57,6 +57,6 @@ jobs:
             docker rm ${{ env.CONTAINER_NAME }} || true
             docker run -d \
               --name ${{ env.CONTAINER_NAME }} \
-              -p ${{ env.APP_PORT }}:{{ env.APP_PORT }} \
+              -p ${{ env.APP_PORT }}:${{ env.APP_PORT }} \
               --env-file .env.prod \
               ${{ env.IMAGE_NAME }}:latest
