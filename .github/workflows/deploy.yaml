@@ -43,7 +43,7 @@ jobs:
       - name: Connect via SSH and deploy
         uses: appleboy/ssh-action@v1.0.3
         env:
-          ENV_PATH: /home/ubuntu/omgg-backend/.env.prod
+          ENV_PATH: .env.prod
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
