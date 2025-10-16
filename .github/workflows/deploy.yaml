@@ -58,5 +58,5 @@ jobs:
             docker run -d \
               --name ${{ env.CONTAINER_NAME }} \
               -p ${{ env.APP_PORT }}:${{ env.APP_PORT }} \
-              --env-file .env.prod \
+              --env-file /home/ubuntu/omgg-backend/.env.prod \
               ${{ env.IMAGE_NAME }}:latest
