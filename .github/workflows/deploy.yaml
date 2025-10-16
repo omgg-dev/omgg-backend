@@ -42,6 +42,8 @@ jobs:
     steps:
       - name: Connect via SSH and deploy
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          ENV_PATH: /home/ubuntu/omgg-backend/.env.prod
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -59,4 +61,4 @@ jobs:
             docker image prune -af
             
             # Restart services
-            docker compose --env-file .env.prod -f docker-compose.prod.yml up -d
+            docker compose --env-file ${{ env.ENV_PATH }} -f docker-compose.prod.yml up -d
