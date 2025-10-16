@@ -59,4 +59,4 @@ jobs:
             docker image prune -af
             
             # Restart services
-            docker compose -f docker-compose.prod.yml up -d
+            docker compose --env-file .env.prod -f docker-compose.prod.yml up -d
