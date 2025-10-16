@@ -55,6 +55,10 @@ jobs:
             docker compose -f docker-compose.prod.yml pull
             
             # Stop previous container
+            docker stop omggWebsiteStrapiProd || true
+            docker stop omggWebsitePostgresql || true
+            docker rm omggWebsiteStrapiProd || true
+            docker rm omggWebsitePostgresql || true
             docker compose -f docker-compose.prod.yml down --remove-orphans
             
             # Remove unused images (without impacting volumes)
