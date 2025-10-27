@@ -1,0 +1,8 @@
+node_modules/
+.strapi/
+database/
+data/
+.git/
+.tmp/
+build/
+.cache/

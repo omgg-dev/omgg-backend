@@ -1,0 +1,68 @@
+name: Build and Deploy Strapi
+
+on:
+  push:
+    branches:
+      - main
+    
+jobs:
+  build-and-push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      IMAGE_NAME: ghcr.io/omgg-dev/omgg-backend
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile.prod
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+  deploy:
+    name: Deploy to Server
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    steps:
+      - name: Connect via SSH and deploy
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          ENV_PATH: .env.prod
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/omgg-backend
+            echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            # Pull the latest image
+            docker compose -f docker-compose.prod.yml pull
+            
+            # Stop previous container
+            docker stop omggWebsiteStrapiProd || true
+            docker stop omggWebsitePostgresql || true
+            docker rm omggWebsiteStrapiProd || true
+            docker rm omggWebsitePostgresql || true
+            docker compose -f docker-compose.prod.yml down --remove-orphans
+            
+            # Remove unused images (without impacting volumes)
+            docker image prune -af
+            
+            # Restart services
+            docker compose --env-file ${{ env.ENV_PATH }} -f docker-compose.prod.yml up -d

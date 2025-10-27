@@ -1,0 +1,58 @@
+# Creating multi-stage build for production
+# Specify the docker image that we want to use. AS build is used is used to name this step and reuse it later
+FROM node:22-alpine AS build
+# Install tools for the strapi compilation
+# apk:                                  update the alpine packet handler
+# build-base, gcc, autoconf, automake:  to complie native node modules
+# zlib-dev, libpng-dev, vips-dev:       graphical dependencies used by strapi to handle images
+# git:                                  if some dependencies are installed from git
+# > /dev/null 2>&1:                     is used to hide the logs and avoid flooding informations
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git > /dev/null 2>&1
+# Specify the type of env (dev or prod)
+# ARG: Available during the build
+# ENV: Available inside the container (during the runtime)
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+# Set the maximal amount of memory usable
+ENV NODE_OPTIONS="--max-old-space-size=2048"
+
+# Define the working directory
+WORKDIR /opt/
+COPY package.json package-lock.json ./
+RUN npm install -g node-gyp
+# Augment the max timeout fetch duration for heavy packages and install only necessary packages (usefull for production)
+RUN npm config set fetch-retry-maxtimeout 600000 -g && npm install --only=production
+# Add binaries to the path to use binaries such as Strapi
+ENV PATH=/opt/node_modules/.bin:$PATH
+# Copy the entire project in the app folder and complie files for production ready
+WORKDIR /opt/app
+COPY . .
+RUN npm run build
+
+########################################
+# -------------------------------------#
+########################################
+
+# Creating final production image, it is a second image without tools for compilation (lighter) 
+FROM node:22-alpine
+# Install only the necessary package (vips-dev, used for the Strapi image processing) 
+RUN apk add --no-cache vips-dev
+# Specify the type of env (dev or prod)
+# ARG: Available during the build
+# ENV: Available inside the container (during the runtime)
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+# Copy the project already build from build image (AS build from the first image)
+WORKDIR /opt/
+COPY --from=build /opt/node_modules ./node_modules
+WORKDIR /opt/app
+COPY --from=build /opt/app ./
+ENV PATH=/opt/node_modules/.bin:$PATH
+
+# Execute the container using a none root user (here node)
+RUN chown -R node:node /opt/app
+USER node
+# Expose the strapi container to the 1337 port
+EXPOSE 1337
+# Default command launched when the container starts
+CMD ["npm", "run", "start"]

@@ -1,26 +1,18 @@
 services:
-  strapi:
-    container_name: strapi
-    build: .
+
+  strapiDev:
+    container_name: omggWebsiteStrapiDev
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: strapi:latest
     restart: unless-stopped
     env_file: .env
-    environment:
-      DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_HOST: ${DATABASE_HOST}
-      DATABASE_PORT: ${DATABASE_PORT}
-      DATABASE_NAME: ${DATABASE_NAME}
-      DATABASE_USERNAME: ${DATABASE_USERNAME}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      JWT_SECRET: ${JWT_SECRET}
-      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
-      APP_KEYS: ${APP_KEYS}
-      NODE_ENV: ${NODE_ENV}
     volumes:
       - ./config:/opt/app/config
       - ./src:/opt/app/src
       - ./package.json:/opt/package.json
-      - ./package-lock.json:/opt/package-lock.json #yarn.lock if we use yarn
+      - ./package-lock.json:/opt/package-lock.json
       - ./.env:/opt/app/.env
       - ./public/uploads:/opt/app/public/uploads
     ports:
@@ -28,29 +20,49 @@ services:
     networks:
       - strapi
     depends_on:
-      - strapiDB
+      - postgresql
 
-  strapiDB:
-    container_name: strapiDB
-    platform: linux/amd64 #for platform error on Apple M1 chips
+  strapiProd:
+    container_name: omggWebsiteStrapiProd
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: strapi:latest
     restart: unless-stopped
-    env_file: .env
+    env_file: .env.prod
+    volumes:
+      - ./config:/opt/app/config
+      - ./src:/opt/app/src
+      - ./package.json:/opt/package.json
+      - ./package-lock.json:/opt/package-lock.json
+      - ./.env.prod:/opt/app/.env.prod
+      - ./public/uploads:/opt/app/public/uploads
+    ports:
+      - "${PORT}:${PORT}"
+    networks:
+      - strapi
+    depends_on:
+      - postgresql
+
+  postgresql:
+    container_name: omggWebsitePostgresql
+    platform: linux/amd64 # For platform error on Apple M1 chips
+    restart: unless-stopped
+    env_file: .env.prod
     image: postgres:16.0-alpine
-    environment:
+    environment: # Not sure it is necessary to specify the env variables here 
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
-    volumes:
-      - strapi-data:/var/lib/postgresql/data/ #using a volume
-      #- ./data:/var/lib/postgresql/data/ # if you want to use a bind folder
-
+    volumes: # Specify Host path : Container path (data are persistent in host path, not in container path)
+      - postgresData:/var/lib/postgresql/data
     ports:
       - "${DATABASE_PORT}:${DATABASE_PORT}"
     networks:
       - strapi
 
 volumes:
-  strapi-data:
+  postgresData:
 
 networks:
   strapi:
