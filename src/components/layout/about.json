@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_layout_abouts",
+  "info": {
+    "displayName": "About",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "boldText": {
+      "type": "text"
+    },
+    "text": {
+      "type": "string"
+    },
+    "isCallToAction": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "callToAction": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isCallToAction"
+            },
+            false
+          ]
+        }
+      },
+      "component": "link.button-link",
+      "repeatable": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

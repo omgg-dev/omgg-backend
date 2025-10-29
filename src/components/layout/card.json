@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_layout_cards",
+  "info": {
+    "displayName": "Card",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "callToAction": {
+      "type": "component",
+      "component": "link.button-link",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

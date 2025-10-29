@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_layout_blog_sections",
+  "info": {
+    "displayName": "BlogSection",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "callToAction": {
+      "type": "component",
+      "component": "link.button-link",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
