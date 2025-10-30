@@ -27,15 +27,14 @@
     },
     "variant": {
       "type": "enumeration",
-      "required": true,
-      "default": "Default",
+      "default": "default",
       "enum": [
-        "Default",
-        "Secondary",
-        "Destructive",
-        "Outline",
-        "Ghost",
-        "Link"
+        "default",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link"
       ]
     }
   },

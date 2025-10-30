@@ -25,19 +25,6 @@
       "required": true,
       "default": false
     },
-    "variant": {
-      "type": "enumeration",
-      "required": true,
-      "default": "Default",
-      "enum": [
-        "Default",
-        "Secondary",
-        "Destructive",
-        "Outline",
-        "Ghost",
-        "Link"
-      ]
-    },
     "isSlugIcon": {
       "type": "boolean",
       "required": true,
@@ -73,6 +60,18 @@
       "allowedTypes": [
         "images",
         "files"
+      ]
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link"
       ]
     }
   },

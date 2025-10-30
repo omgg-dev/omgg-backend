@@ -4,12 +4,15 @@
 
 import { factories } from '@strapi/strapi';
 
+
 export default factories.createCoreController('api::global.global', ({ strapi }) => ({
     async find(ctx) {
+        const locale = ctx.query.locale || 'en';
         const entity = await strapi.db.query('api::global.global').findOne({
+            where: { locale },
             populate: {
                 navbar: {
-                    populate : {
+                    populate: {
                         logo: {
                             populate: {
                                 image: true
@@ -17,14 +20,18 @@ export default factories.createCoreController('api::global.global', ({ strapi })
                         },
                         dropdowns: {
                             populate: {
-                                items: true
+                                items: {
+                                    populate: {
+                                        icon: true
+                                    }
+                                }
                             }
                         },
                         linkButtons: true
                     }
                 },
                 footer: {
-                    populate : {
+                    populate: {
                         iconsLink: true,
                         menu: true,
                         legal: true
