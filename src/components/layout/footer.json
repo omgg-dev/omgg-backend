@@ -22,7 +22,7 @@
       "component": "link.icon-link",
       "repeatable": true
     },
-    "Menu": {
+    "menu": {
       "type": "component",
       "component": "element.menu",
       "repeatable": true
