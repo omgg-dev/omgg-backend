@@ -15,7 +15,7 @@
       "default": "/",
       "required": true
     },
-    "IsDisable": {
+    "isDisable": {
       "type": "boolean",
       "required": true,
       "default": false

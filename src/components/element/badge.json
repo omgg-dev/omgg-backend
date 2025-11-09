@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_element_badges",
+  "info": {
+    "displayName": "Badge",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

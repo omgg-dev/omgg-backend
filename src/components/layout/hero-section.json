@@ -6,8 +6,20 @@
   },
   "options": {},
   "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "element.badge",
+      "repeatable": false
+    },
     "title": {
-      "type": "string"
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "subtitle": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
     },
     "logo": {
       "type": "media",
@@ -18,6 +30,16 @@
         "videos",
         "audios"
       ]
+    },
+    "buttons": {
+      "type": "component",
+      "component": "link.button-link",
+      "repeatable": true
+    },
+    "enableAnimation": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   },
   "config": {}

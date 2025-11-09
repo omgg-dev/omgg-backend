@@ -11,10 +11,7 @@
       "component": "element.logo",
       "repeatable": false
     },
-    "websiteName": {
-      "type": "string"
-    },
-    "slogan": {
+    "subtitle": {
       "type": "string"
     },
     "iconsLink": {

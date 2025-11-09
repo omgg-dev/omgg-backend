@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "text": {
+    "title": {
       "type": "string",
       "required": true
     },
@@ -20,7 +20,7 @@
       "required": true,
       "default": false
     },
-    "IsDisable": {
+    "isDisable": {
       "type": "boolean",
       "required": true,
       "default": false

@@ -6,11 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "logo": {
-      "type": "component",
-      "component": "element.logo",
-      "repeatable": false
-    },
     "dropdowns": {
       "type": "component",
       "component": "element.button-dropdown",
@@ -20,6 +15,16 @@
       "type": "component",
       "component": "link.button-link",
       "repeatable": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   },
   "config": {}

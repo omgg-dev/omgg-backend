@@ -13,12 +13,6 @@
   "attributes": {
     "name": {
       "type": "string"
-    },
-    "blog_preview_cards": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::blog-preview-card.blog-preview-card",
-      "mappedBy": "tags"
     }
   }
 }

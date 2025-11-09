@@ -59,7 +59,7 @@
         }
       },
       "component": "layout.footer",
-      "repeatable": true
+      "repeatable": false
     }
   }
 }

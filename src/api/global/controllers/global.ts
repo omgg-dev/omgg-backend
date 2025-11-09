@@ -13,31 +13,36 @@ export default factories.createCoreController('api::global.global', ({ strapi })
             populate: {
                 navbar: {
                     populate: {
-                        logo: {
-                            populate: {
-                                image: true
-                            }
-                        },
+                        logo: true,
                         dropdowns: {
                             populate: {
                                 items: {
                                     populate: {
-                                        icon: true
+                                        icon: true,
                                     }
                                 }
                             }
                         },
-                        linkButtons: true
+                        linkButtons: true,
                     }
                 },
                 footer: {
                     populate: {
                         iconsLink: true,
-                        menu: true,
-                        legal: true
+                        menu: {
+                            populate: {
+                                textLinks: true,
+                            }
+                        }, 
+                        legal: true,
+                        logo: {
+                            populate: {
+                                image: true,
+                            }
+                        }
                     }
                 },
-                favicon: true
+                favicon: true,
             }
         });
 

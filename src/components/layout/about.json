@@ -7,18 +7,19 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
     },
-    "boldText": {
-      "type": "text"
+    "description": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
     },
     "text": {
-      "type": "string"
-    },
-    "isCallToAction": {
-      "type": "boolean",
-      "required": true,
-      "default": false
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
     },
     "callToAction": {
       "type": "component",
@@ -35,15 +36,10 @@
       "component": "link.button-link",
       "repeatable": false
     },
-    "backgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "enableAnimation": {
+      "type": "boolean",
+      "required": true,
+      "default": true
     }
   },
   "config": {}

@@ -6,11 +6,11 @@
   },
   "options": {},
   "attributes": {
-    "text": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "IsDisable": {
+    "isDisable": {
       "type": "boolean",
       "required": true,
       "default": false
