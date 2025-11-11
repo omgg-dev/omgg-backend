@@ -28,7 +28,8 @@
         "layout.testimonials-section",
         "layout.blog-section",
         "layout.offers",
-        "layout.partners"
+        "layout.partners",
+        "layout.news-letter-form"
       ]
     }
   }

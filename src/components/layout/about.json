@@ -23,16 +23,6 @@
     },
     "callToAction": {
       "type": "component",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "isCallToAction"
-            },
-            false
-          ]
-        }
-      },
       "component": "link.button-link",
       "repeatable": false
     },

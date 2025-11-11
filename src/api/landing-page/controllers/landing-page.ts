@@ -50,6 +50,9 @@ export default factories.createCoreController('api::landing-page.landing-page', 
                                 title: true
                             }
                         },
+                        "layout.news-letter-form": {
+                            populate: {}
+                        }
                     }
                 }
             }
