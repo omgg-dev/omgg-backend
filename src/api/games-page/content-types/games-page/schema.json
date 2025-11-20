@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "landing_pages",
+  "collectionName": "games_pages",
   "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "Landing Page"
+    "singularName": "games-page",
+    "pluralName": "games-pages",
+    "displayName": "Games Page"
   },
   "options": {
     "draftAndPublish": true
@@ -23,13 +23,11 @@
         }
       },
       "components": [
-        "layout.hero-section",
-        "layout.testimonials-section",
         "layout.news-letter-form",
-        "layout.partners",
-        "layout.offers",
-        "layout.blog-section",
-        "layout.about"
+        "layout.about",
+        "layout.media-gallery-section",
+        "layout.hero-trailer-section",
+        "layout.cta-section"
       ]
     }
   }

@@ -28,20 +28,14 @@
       }
     },
     "description": {
-      "type": "text",
+      "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
-    },
-    "shortDescription": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      },
+      "component": "element.text",
+      "repeatable": false
     },
     "isNew": {
       "type": "boolean",
@@ -67,19 +61,10 @@
       ]
     },
     "gallery": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gallery.gallery",
+      "mappedBy": "game"
     },
     "platforms": {
       "type": "relation",
@@ -87,11 +72,32 @@
       "target": "api::platform.platform",
       "mappedBy": "games"
     },
-    "downloads": {
+    "download": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::download.download",
-      "mappedBy": "game"
+      "inversedBy": "games"
+    },
+    "genrers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::genrer.genrer",
+      "inversedBy": "games"
+    },
+    "pngIllustration": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

@@ -3,7 +3,6 @@
  */
 
 import { factories } from '@strapi/strapi'
-import { title } from 'process';
 
 export default factories.createCoreController('api::landing-page.landing-page', ({ strapi }) => ({
     async find(ctx) {
@@ -52,6 +51,13 @@ export default factories.createCoreController('api::landing-page.landing-page', 
                         },
                         "layout.news-letter-form": {
                             populate: {}
+                        },
+                        "layout.cta-section": {
+                            populate: {
+                                title: true,
+                                description: true,
+                                downloadButton: true,
+                            }
                         }
                     }
                 }

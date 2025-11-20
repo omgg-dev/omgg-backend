@@ -14,24 +14,17 @@
     "slug": {
       "type": "uid"
     },
-    "installer": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "url": {
+      "type": "string"
     },
     "isDownloadable": {
       "type": "boolean"
     },
-    "game": {
+    "games": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::game.game",
-      "inversedBy": "downloads"
+      "mappedBy": "download"
     },
     "platform": {
       "type": "relation",

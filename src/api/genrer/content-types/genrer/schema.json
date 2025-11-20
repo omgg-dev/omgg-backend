@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "genrers",
+  "info": {
+    "singularName": "genrer",
+    "pluralName": "genrers",
+    "displayName": "Genrer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "slug": {
+      "type": "uid"
+    },
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "games": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::game.game",
+      "mappedBy": "genrers"
+    }
+  }
+}

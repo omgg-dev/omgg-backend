@@ -12,7 +12,14 @@
   "pluginOptions": {},
   "attributes": {
     "email": {
-      "type": "email"
+      "type": "email",
+      "unique": true
+    },
+    "newsLetter": {
+      "type": "json"
+    },
+    "company": {
+      "type": "json"
     }
   }
 }
