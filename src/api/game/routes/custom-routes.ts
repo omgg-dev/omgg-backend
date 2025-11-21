@@ -4,7 +4,7 @@ export default {
     {
       method: 'GET',
       path: '/games/:slug',
-      handler: 'game.findOneBySlug',
+      handler: 'game.findFirst',
       config: { auth: false },
     },
   ],

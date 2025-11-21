@@ -6,14 +6,17 @@ import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::game.game', ({ strapi }) => ({
     
-    async findOneBySlug(ctx) {
-        const locale = ctx.query.locale || 'en';
+    async findFirst(ctx) {
         const { slug } = ctx.params;
 
         console.log("[findOneBySlug]");
 
-        const entity = await strapi.db.query('api::game.game').findOne({
-            where: { slug, locale },
+        const entity = await strapi.documents('api::game.game').findFirst({
+            filters: {
+                slug: {
+                    $eq: slug
+                }
+            },
             populate: {
                 gallery: {
                     populate: {
