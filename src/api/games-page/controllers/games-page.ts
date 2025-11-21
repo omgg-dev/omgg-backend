@@ -5,10 +5,9 @@
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::games-page.games-page', ({ strapi }) => ({    
-    async find(ctx) {
-        const locale = ctx.query.locale || 'en';
-        const entity = await strapi.db.query('api::games-page.games-page').findOne({
-            where: { locale },
+    async find() {
+        const entity = await strapi.documents('api::games-page.games-page').findFirst({
+            status: 'published', // Only fetch published data, not draft
             populate: {
                 blocks: {
                     on: {
@@ -17,19 +16,15 @@ export default factories.createCoreController('api::games-page.games-page', ({ s
                                downloadButton: true, 
                             }
                         },
-                        "layout.media-gallery-section": {
-                            populate: {}
-                        },
-                        "layout.about": {
+                        'layout.media-gallery-section': {},
+                        'layout.about': {
                             populate: {
                                 title: true,
                                 description: true,
                             }
                         },
-                        "layout.news-letter-form": {
-                            populate: {}
-                        },
-                        "layout.cta-section": {
+                        'layout.news-letter-form': {},
+                        'layout.cta-section': {
                             populate: {
                                 title: true,
                                 description: true,

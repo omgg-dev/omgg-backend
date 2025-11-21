@@ -4,12 +4,10 @@
 
 import { factories } from '@strapi/strapi';
 
-
 export default factories.createCoreController('api::global.global', ({ strapi }) => ({
-    async find(ctx) {
-        const locale = ctx.query.locale || 'en';
-        const entity = await strapi.db.query('api::global.global').findOne({
-            where: { locale },
+    async find() {
+        const entity = await strapi.documents('api::global.global').findFirst({
+            status: 'published', // Only fetch published data, not draft
             populate: {
                 navbar: {
                     populate: {

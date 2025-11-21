@@ -5,10 +5,9 @@
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::landing-page.landing-page', ({ strapi }) => ({
-    async find(ctx) {
-        const locale = ctx.query.locale || 'en';
-        const entity = await strapi.db.query('api::landing-page.landing-page').findOne({
-            where: { locale },
+    async find() {
+        const entity = await strapi.documents('api::landing-page.landing-page').findFirst({
+            status: 'published', // Only fetch published data, not draft
             populate: {
                 blocks: {
                     on: {
@@ -21,7 +20,7 @@ export default factories.createCoreController('api::landing-page.landing-page', 
                                 subtitle: true,
                             }
                         },
-                        "layout.about": {
+                        'layout.about': {
                             populate: {
                                 callToAction: true,
                                 title: true,
@@ -29,7 +28,7 @@ export default factories.createCoreController('api::landing-page.landing-page', 
                                 text: true,
                             }
                         },
-                        "layout.offers": {
+                        'layout.offers': {
                             populate: {
                                 cards: {
                                     populate: {
@@ -38,27 +37,14 @@ export default factories.createCoreController('api::landing-page.landing-page', 
                                 },
                             }
                         },
-                        "layout.partners": {
+                        'layout.partners': {
                             populate: {
                                 title: true,
                             }
                         },
-                        "layout.testimonials-section": {},
-                        "layout.blog-section": {
-                            populate: {
-                                title: true
-                            }
-                        },
-                        "layout.news-letter-form": {
-                            populate: {}
-                        },
-                        "layout.cta-section": {
-                            populate: {
-                                title: true,
-                                description: true,
-                                downloadButton: true,
-                            }
-                        }
+                        'layout.testimonials-section': {},
+                        'layout.blog-section': {},
+                        'layout.news-letter-form': {},
                     }
                 }
             }
