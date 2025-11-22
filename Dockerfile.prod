@@ -49,8 +49,11 @@ WORKDIR /opt/app
 COPY --from=build /opt/app ./
 ENV PATH=/opt/node_modules/.bin:$PATH
 
+# Ensure uploads directory exists and is writable
+RUN mkdir -p /opt/app/public/uploads \
+  && chown -R node:node /opt/app \
+  && chmod -R 775 /opt/app/public/uploads
 # Execute the container using a none root user (here node)
-RUN chown -R node:node /opt/app
 USER node
 # Expose the strapi container to the 1337 port
 EXPOSE 1337

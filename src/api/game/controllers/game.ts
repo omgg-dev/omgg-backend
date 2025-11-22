@@ -8,9 +8,6 @@ export default factories.createCoreController('api::game.game', ({ strapi }) => 
     
     async findFirst(ctx) {
         const { slug } = ctx.params;
-
-        console.log("[findOneBySlug]");
-
         const entity = await strapi.documents('api::game.game').findFirst({
             filters: {
                 slug: {
