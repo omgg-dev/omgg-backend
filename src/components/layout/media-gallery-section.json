@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_media_gallery_sections",
+  "info": {
+    "displayName": "MediaGallerySection",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "enableAnimation": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

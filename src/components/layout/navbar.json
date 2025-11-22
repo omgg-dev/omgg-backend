@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_layout_navbars",
+  "info": {
+    "displayName": "Navbar",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "dropdowns": {
+      "type": "component",
+      "component": "element.button-dropdown",
+      "repeatable": true
+    },
+    "linkButtons": {
+      "type": "component",
+      "component": "link.button-link",
+      "repeatable": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

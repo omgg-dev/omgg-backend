@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "games_pages",
+  "info": {
+    "singularName": "games-page",
+    "pluralName": "games-pages",
+    "displayName": "Games Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "blocks": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "layout.news-letter-form",
+        "layout.about",
+        "layout.media-gallery-section",
+        "layout.hero-trailer-section",
+        "layout.cta-section"
+      ]
+    }
+  }
+}

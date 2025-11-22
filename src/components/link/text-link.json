@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_link_text_links",
+  "info": {
+    "displayName": "Text Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "default": "/",
+      "required": true
+    },
+    "isDisable": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "newTab": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "config": {}
+}

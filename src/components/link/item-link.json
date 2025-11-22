@@ -1,0 +1,61 @@
+{
+  "collectionName": "components_link_item_links",
+  "info": {
+    "displayName": "Item Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "default": "/",
+      "required": true
+    },
+    "isSlugIcon": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "slugIcon": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isSlugIcon"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "icon": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isSlugIcon"
+            },
+            false
+          ]
+        }
+      },
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

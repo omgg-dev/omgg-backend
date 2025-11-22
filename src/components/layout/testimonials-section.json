@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_layout_testimonials_sections",
+  "info": {
+    "displayName": "TestimonialsSection",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "maxTestimonials": {
+      "type": "integer",
+      "required": true,
+      "default": 3,
+      "min": 0
+    },
+    "enableAnimation": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "config": {}
+}

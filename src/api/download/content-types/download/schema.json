@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "downloads",
+  "info": {
+    "singularName": "download",
+    "pluralName": "downloads",
+    "displayName": "Download"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid"
+    },
+    "url": {
+      "type": "string"
+    },
+    "isDownloadable": {
+      "type": "boolean"
+    },
+    "games": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::game.game",
+      "mappedBy": "download"
+    },
+    "platform": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::platform.platform"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "collectionName": "components_link_icon_links",
+  "info": {
+    "displayName": "Icon Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "default": "/",
+      "required": true
+    },
+    "newTab": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "isDisable": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "isSlugIcon": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "slugIcon": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isSlugIcon"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "icon": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isSlugIcon"
+            },
+            false
+          ]
+        }
+      },
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link"
+      ]
+    }
+  },
+  "config": {}
+}
