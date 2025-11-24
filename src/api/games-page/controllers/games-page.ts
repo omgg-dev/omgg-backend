@@ -5,9 +5,11 @@
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::games-page.games-page', ({ strapi }) => ({    
-    async find() {
+    async find(ctx) {
+        const locale: string = ctx.request.query.locale as string;
         const entity = await strapi.documents('api::games-page.games-page').findFirst({
             status: 'published', // Only fetch published data, not draft
+            locale,
             populate: {
                 blocks: {
                     on: {

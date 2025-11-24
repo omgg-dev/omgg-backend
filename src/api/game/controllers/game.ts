@@ -8,7 +8,10 @@ export default factories.createCoreController('api::game.game', ({ strapi }) => 
     
     async findFirst(ctx) {
         const { slug } = ctx.params;
+        const locale: string = ctx.request.query.locale as string;
+        console.log(`[Game]: locale -> ${locale}`);
         const entity = await strapi.documents('api::game.game').findFirst({
+            locale,
             filters: {
                 slug: {
                     $eq: slug
