@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_layout_partners",
+  "info": {
+    "displayName": "Partners",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "maxPartners": {
+      "type": "integer",
+      "required": true,
+      "default": 8,
+      "min": 0
+    },
+    "enableAnimation": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "config": {}
+}

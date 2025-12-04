@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_layout_news_letter_forms",
+  "info": {
+    "displayName": "NewsLetterForm",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "enableAnimation": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

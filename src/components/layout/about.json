@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_layout_abouts",
+  "info": {
+    "displayName": "About",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "description": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "text": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "callToAction": {
+      "type": "component",
+      "component": "link.button-link",
+      "repeatable": false
+    },
+    "enableAnimation": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "config": {}
+}

@@ -15,7 +15,7 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://omgg.fr', 'https://www.omgg.fr'],
+      origin: ['https://omgg.fr', 'https://www.omgg.fr', '*'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       credentials: true,

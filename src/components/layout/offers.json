@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_offers",
+  "info": {
+    "displayName": "Offers",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "component": "layout.card",
+      "repeatable": true
+    },
+    "enableAnimation": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "config": {}
+}

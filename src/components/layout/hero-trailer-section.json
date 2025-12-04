@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_layout_hero_trailer_sections",
+  "info": {
+    "displayName": "HeroTrailerSection",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "downloadButton": {
+      "type": "component",
+      "component": "link.button-link",
+      "repeatable": false
+    },
+    "enableAnimation": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

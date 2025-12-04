@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_link_button_links",
+  "info": {
+    "displayName": "Button Link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "default": "/",
+      "required": true
+    },
+    "newTab": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "isDisable": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "variant": {
+      "type": "enumeration",
+      "default": "default",
+      "enum": [
+        "default",
+        "secondary",
+        "destructive",
+        "outline",
+        "ghost",
+        "link"
+      ]
+    }
+  },
+  "config": {}
+}

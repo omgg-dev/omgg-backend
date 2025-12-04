@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_element_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "H1",
+        "H2",
+        "H3",
+        "P"
+      ]
+    },
+    "isBold": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  },
+  "config": {}
+}

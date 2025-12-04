@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_layout_hero_sections",
+  "info": {
+    "displayName": "HeroSection",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "badge": {
+      "type": "component",
+      "component": "element.badge",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "subtitle": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "buttons": {
+      "type": "component",
+      "component": "link.button-link",
+      "repeatable": true
+    },
+    "enableAnimation": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "config": {}
+}

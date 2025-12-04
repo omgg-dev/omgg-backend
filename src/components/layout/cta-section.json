@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_layout_cta_sections",
+  "info": {
+    "displayName": "CtaSection",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "enableAnimation": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "description": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "downloadButton": {
+      "type": "component",
+      "component": "link.button-link",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "element.text",
+      "repeatable": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

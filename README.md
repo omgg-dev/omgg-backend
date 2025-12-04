@@ -8,6 +8,8 @@ Start your Strapi application with autoReload enabled. [Learn more](https://docs
 
 ```
 npm run develop
+# or
+yarn develop
 ```
 
 ### `start`
@@ -16,6 +18,8 @@ Start your Strapi application with autoReload disabled. [Learn more](https://doc
 
 ```
 npm run start
+# or
+yarn start
 ```
 
 ### `build`
@@ -24,11 +28,17 @@ Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-
 
 ```
 npm run build
+# or
+yarn build
 ```
 
 ## ⚙️ Deployment
 
 Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+
+```
+yarn strapi deploy
+```
 
 ## 📚 Learn more
 
@@ -46,22 +56,6 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 - [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
 - [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
 
-## Docker
+---
 
-Before running the project you msut download docker engine using this [link](https://docs.docker.com/engine/). In case you want to use the [docker desktop app](https://docs.docker.com/desktop/) it is totally up to you.
-
-To start the project locally on your machine using docker you should run the following command if it is the first time:
-```
-Docker compose up --build
-```
-
-In case you already build up the docker volume you just need to run and then follow this [link](http://localhost:1337):
-```
-Docker compose up
-```
-
-
-If you want to stop the docker to run, use:
-```
-Docker stop <contaner_name_id>
-```
+<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
