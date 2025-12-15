@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quotations",
+  "info": {
+    "singularName": "quotation",
+    "pluralName": "quotations",
+    "displayName": "Quotation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "quotations"
+    },
+    "quotationGame": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quotation-game.quotation-game",
+      "inversedBy": "quotation"
+    },
+    "additionalInfo": {
+      "type": "text"
+    },
+    "budget": {
+      "type": "string",
+      "required": true
+    },
+    "deadline": {
+      "type": "string",
+      "required": true
+    },
+    "services": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

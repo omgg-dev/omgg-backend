@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quotation_games",
+  "info": {
+    "singularName": "quotation-game",
+    "pluralName": "quotation-games",
+    "displayName": "QuotationGame"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": true
+    },
+    "detailedDescription": {
+      "type": "text",
+      "required": true
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "rulesDocument": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "devStage": {
+      "type": "string",
+      "required": true
+    },
+    "playersCount": {
+      "type": "string",
+      "required": true
+    },
+    "gameDuration": {
+      "type": "string",
+      "required": true
+    },
+    "recommendedAge": {
+      "type": "string",
+      "required": true
+    },
+    "complexity": {
+      "type": "string",
+      "required": true
+    },
+    "theme": {
+      "type": "string"
+    },
+    "uniqueFeatures": {
+      "type": "text"
+    },
+    "mainMechanic": {
+      "type": "string",
+      "required": true
+    },
+    "demoVideo": {
+      "type": "string"
+    },
+    "quotation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quotation.quotation",
+      "mappedBy": "quotationGame"
+    }
+  }
+}
