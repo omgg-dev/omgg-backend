@@ -24,6 +24,10 @@
       "component": "element.menu",
       "repeatable": true
     },
+    "newsletter": {
+      "type": "boolean",
+      "default": true
+    },
     "legal": {
       "type": "component",
       "component": "link.text-link",

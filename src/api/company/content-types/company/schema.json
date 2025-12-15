@@ -9,38 +9,26 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "slug": {
       "type": "uid"
     },
     "name": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
     },
     "description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "text"
+    },
+    "isPartner": {
+      "type": "boolean",
+      "default": false
     },
     "icon": {
       "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "multiple": false,
       "allowedTypes": [
         "images",
@@ -53,6 +41,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::attestant.attestant",
+      "mappedBy": "company"
+    },
+    "quotations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quotation.quotation",
       "mappedBy": "company"
     }
   }

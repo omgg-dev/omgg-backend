@@ -37,14 +37,6 @@
       "component": "element.text",
       "repeatable": false
     },
-    "isNew": {
-      "type": "boolean",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "background": {
       "type": "media",
       "pluginOptions": {
@@ -98,6 +90,25 @@
         "videos",
         "audios"
       ]
+    },
+    "releaseDate": {
+      "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "SEO": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": false
     }
   }
 }

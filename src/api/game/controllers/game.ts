@@ -35,6 +35,11 @@ export default factories.createCoreController('api::game.game', ({ strapi }) => 
                 background: true,
                 description: true,
                 pngIllustration: true,
+                SEO: {
+                    populate: {
+                        shareImage: true
+                    }
+                }
             }
         })
 

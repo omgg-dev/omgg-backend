@@ -13,13 +13,16 @@
   "attributes": {
     "email": {
       "type": "email",
+      "required": true,
       "unique": true
     },
-    "newsLetter": {
-      "type": "json"
+    "news": {
+      "type": "boolean",
+      "default": true
     },
-    "company": {
-      "type": "json"
+    "offers": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
