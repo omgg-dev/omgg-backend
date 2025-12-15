@@ -23,6 +23,10 @@
     "description": {
       "type": "text"
     },
+    "isPartner": {
+      "type": "boolean",
+      "default": false
+    },
     "icon": {
       "type": "media",
       "multiple": false,
