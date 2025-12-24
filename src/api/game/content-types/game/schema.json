@@ -37,6 +37,14 @@
       "component": "element.text",
       "repeatable": false
     },
+    "website": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "background": {
       "type": "media",
       "pluginOptions": {
