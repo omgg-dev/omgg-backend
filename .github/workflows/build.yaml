@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - dev
+  worflow_dispatch:
 
 jobs:
   build:

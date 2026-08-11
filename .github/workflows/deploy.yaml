@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-    
+  worflow_dispatch:
+
 jobs:
   build-and-push:
     name: Build and Push Docker Image
@@ -24,7 +25,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -53,16 +54,16 @@ jobs:
             echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             # Pull the latest image
             docker compose -f docker-compose.prod.yml pull
-            
+
             # Stop previous container
             docker stop omggWebsiteStrapiProd || true
             docker stop omggWebsitePostgresql || true
             docker rm omggWebsiteStrapiProd || true
             docker rm omggWebsitePostgresql || true
             docker compose -f docker-compose.prod.yml down --remove-orphans
-            
+
             # Remove unused images (without impacting volumes)
             docker image prune -af
-            
+
             # Restart services
             docker compose --env-file ${{ env.ENV_PATH }} -f docker-compose.prod.yml up -d
