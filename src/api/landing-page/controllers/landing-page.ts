@@ -5,11 +5,9 @@
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::landing-page.landing-page', ({ strapi }) => ({
-    async find(ctx) {
-        const locale: string = ctx.request.query.locale as string;
+    async find() {
         const entity = await strapi.documents('api::landing-page.landing-page').findFirst({
             status: 'published', // Only fetch published data, not draft
-            locale,
             populate: {
                 blocks: {
                     on: {
